@@ -14,17 +14,18 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  # Had to enable less secure apps on my gmail account at the following url that gmail sent me:
+  # When using gmail, had to enable less secure apps on my gmail account at the following url that gmail sent me:
   # https://www.google.com/settings/security/lesssecureapps
+  # Does not work using Google Apps so using SendGrid instead
   config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
+    address:              'smtp.sendgrid.net',
     port:                 587,
-    domain:               'localhost',
-    user_name:            '',
-    password:             '',
+    domain:               'servicehub.co',
+    user_name:            ENV['SENDGRID_USERNAME'],
+    password:             ENV['SENDGRID_PASSWORD'],
     authentication:       'plain',
     enable_starttls_auto: true
   }

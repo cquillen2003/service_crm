@@ -31,7 +31,7 @@ class LeadsController < ApplicationController
         format.html { redirect_to @lead, notice: 'Lead was successfully created.' }
         format.js { render status: 200 }
         format.json { render :show, status: :created, location: @lead }
-        #LeadMailer.earlyaccess_email(@lead).deliver_now
+        LeadMailer.earlyaccess_email(@lead).deliver_now
       else
         format.html { render :new }
         format.js { render status: 500 }
