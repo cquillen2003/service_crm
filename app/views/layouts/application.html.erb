@@ -49,6 +49,26 @@
             <script src="/smartmvp/js/plugins/respond.min.js"></script>
     <![endif]-->
 
+    <script>
+        //Only run Google Analytics in Production
+        //http://stackoverflow.com/questions/1251922/is-there-a-way-to-stop-google-analytics-counting-development-work-as-hits
+        if (document.location.hostname == 'www.servicehub.co') {
+
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-58866132-1', 'auto');
+            ga('send', 'pageview');
+
+        }
+        else {
+            console.log('Host Name:' + ' ' + document.location.hostname);
+            console.log('Google Analytics tracking code not executed');
+        }
+    </script>
+
 </head>
 
 <body>
@@ -319,26 +339,6 @@
 
     <!-- Custom Script -->
     <script src="/smartmvp/js/custom.js"></script>
-
-    <script>
-        //Only run Google Analytics in Production
-        //http://stackoverflow.com/questions/1251922/is-there-a-way-to-stop-google-analytics-counting-development-work-as-hits
-        if (document.location.hostname == 'www.servicehub.co') {
-
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-            ga('create', 'UA-58866132-1', 'auto');
-            ga('send', 'pageview');
-
-        }
-        else {
-            console.log('Host Name:' + ' ' + document.location.hostname);
-            console.log('Google Analytics tracking code not executed');
-        }
-    </script>
     
 </body>
 </html>
